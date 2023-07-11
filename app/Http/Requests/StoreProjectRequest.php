@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePostRequest extends FormRequest
+class StoreProjectRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -32,7 +32,7 @@ class StorePostRequest extends FormRequest
     
     public function messages() {
         return [
-            "title.required" => "Ogni post deve avere un titolo"
+            "title.required" => "Ogni nuovo progetto deve avere un titolo"
         ];
     }
 }

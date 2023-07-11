@@ -4,7 +4,7 @@
 
 <div class="container-fluid mt-4">
     <div class="row justify-content-between">
-        <h1>Crea un nuovo post</h1>
+        <h1>Inserisci nuovo progetto</h1>
 
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -16,7 +16,7 @@
         </div>
         @endif
 
-        <form action="{{ route("admin.posts.store") }}" method="POST" class="needs-validation">
+        <form action="{{ route("admin.projects.store") }}" method="POST" class="needs-validation">
             @csrf
 
             <label for="title">Titolo</label>
@@ -28,7 +28,7 @@
             <label for="image">URL Immagine</label>
             <input type="text" name="image" id="image" value="{{ old("image") }}" class="form-control mb-4">
 
-            <input type="submit" class="btn btn-primary form-control mb-4" value="Crea post">
+            <input type="submit" class="btn btn-primary form-control mb-4" value="Inserisci nuovo progetto">
         
         </form>
     </div>

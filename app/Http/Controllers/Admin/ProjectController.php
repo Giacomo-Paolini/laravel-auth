@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\Post;
-use App\Http\Requests\StorePostRequest;
-use App\Http\Requests\UpdatePostRequest;
+use App\Models\Project;
+use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 
-class PostController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $project = Project::all();
 
-        return view("admin.posts.index", compact("posts") );
+        return view("admin.projects.index", compact("project") );
     }
 
     /**
@@ -29,44 +29,44 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view("admin.posts.create");
+        return view("admin.projects.create");
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePostRequest  $request
+     * @param  \App\Http\Requests\StoreProjectRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePostRequest $request)
+    public function store(StoreProjectRequest $request)
     {
         $data = $request->validated();
 
-        $newPost = new Post();
-        $newPost->fill($data);
-        $newPost->save();
+        $newProject = new Project();
+        $newProject->fill($data);
+        $newProject->save();
 
-        return to_route("admin.posts.show", $newPost);
+        return to_route("admin.projects.show", $newProject);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Project  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Project $project)
     {
-        return view("admin.posts.show", compact("post"));
+        return view("admin.projects.show", compact("project"));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Project  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Project $project)
     {
         //
     }
@@ -74,11 +74,11 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePostRequest  $request
-     * @param  \App\Models\Post  $post
+     * @param  \App\Http\Requests\UpdateProjectRequest  $request
+     * @param  \App\Models\Project  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
         //
     }
@@ -86,10 +86,10 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Project  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Project $project)
     {
         //
     }
